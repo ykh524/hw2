@@ -43,3 +43,10 @@ print("Scenario (ii) — Laplace scale b = 3")
 print("Noisy age histogram:      ", age_noisy_ii.astype(int))
 print("Noisy workclass counts:   ", dict(zip(lab_w, wc_noisy_ii.astype(int))))
 print("Noisy education counts:   ", dict(zip(lab_e, ed_noisy_ii.astype(int))))
+
+# Explain/justify your choices
+# I set ε = 1 and δ = 10⁻⁵ for Gaussian noise because this is the standard moderate privacy budget used in many demos; δ < 1/n.
+# For numeric queries the global sensitivity equals (max − min)/n, for histogram counts it is 1, so the Laplace scale is b = 1/ε.
+# What is a meaningful comparison?
+# keep ε identical and δ identical.
+# run the code ≥ 1 000 times and record the distribution of errors if you want an empirical plot.
