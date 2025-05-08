@@ -1,3 +1,6 @@
+# hw2
+#Kaihan Yang
+
 import pandas as pd, numpy as np
 
 df = pd.read_csv("adult.csv")          
@@ -11,7 +14,7 @@ def dp_histogram(series, bins, eps):
 def categorical_dp_hist(series, eps):
     levels = series.unique()
     counts = series.value_counts().reindex(levels, fill_value=0).values
-    noisy  = counts + np.random.laplace(scale=1/eps, size=len(counts))
+    noisy  = counts + np.random.laplace(scale=1/eps, size=len(counts)) #Laplace noise with scale 1/ε (global sensitivity = 1)
     return noisy, levels
 
 EPS_TOTAL = 1.0         
